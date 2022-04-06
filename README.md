@@ -1,1 +1,1 @@
-# Weather (weather_output.png)
+# Weather ![](weather_output.png)
