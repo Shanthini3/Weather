@@ -13,18 +13,21 @@ import os
 import requests
 from datetime import datetime
 import time
+from dotenv import load_dotenv
 
+load_dotenv()
 #description of projectk
 print("Hello")
 time.sleep(0.5)
 print("Here, you can find weather in your city!")
 time.sleep(1)
 #access API key
-#weather_key = os.environ["weather"]
+weather_key = os.environ.get("WEATHER_API_KEY")
 #location from user
 location = input("Enter location: ")
 #URL
-api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid=07eecd19c8c0933bfc0ce46954ea9a02"
+#api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid=07eecd19c8c0933bfc0ce46954ea9a02"
+api_link = f"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={weather_key}"
 #HTTP request
 r=requests.get(api_link)
 #convert the data in 'r' into dictionary
